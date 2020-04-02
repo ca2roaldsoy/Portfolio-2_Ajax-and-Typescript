@@ -1,6 +1,6 @@
 import React from "react";
 import "./sass/style.scss";
-import NavMenu from "./components/Menu/NavMenu";
+import NavMenu from "./components/menu/NavMenu";
 
 function App() {
   return (

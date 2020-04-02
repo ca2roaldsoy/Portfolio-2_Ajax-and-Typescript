@@ -2,13 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
-import ListGroupItem from "react-bootstrap/ListGroupItem";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
 // Home Page
-function AmiiboCharacter({ name, image, game }) {
+function AmiiboCharacter({ name, image }) {
   return (
     <Col sm={12} md={4} lg={3} as="section">
       <Card>
