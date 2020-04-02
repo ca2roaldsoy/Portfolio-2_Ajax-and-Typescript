@@ -3,21 +3,21 @@ import { AmiiboUrl } from "../../constants/api";
 import CardDeck from "react-bootstrap/CardDeck";
 import Title from "../../constants/title";
 import Search from "./Search";
-import Spinner from "react-bootstrap/Spinner";
 import AmiiboCharacter from "./AmiiboCharacter";
+import Spinner from "../../constants/spinner";
 
 function Home() {
   const [amiibos, setAmiibos] = useState([]);
   const [filterAmiibos, setFilterAmiibos] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(AmiiboUrl)
       .then(response => response.json())
       .then(json => {
-        //console.log(json.amiibo);
         setAmiibos(json.amiibo);
         setFilterAmiibos(json.amiibo);
+        setLoading(false);
       })
       .catch(err => console.log(err))
       .finally(() => setLoading(false));
@@ -37,18 +37,13 @@ function Home() {
     setFilterAmiibos(filterArr);
   };
 
-  // loading
-  if (loading) {
-    return <Spinner />;
-  }
-
   //console.log(filterAmiibos);
-  let ambi = filterAmiibos.filter(
+  const ambi = filterAmiibos.filter(
     name =>
       name.tail.includes("00000002") || // Mario
-      name.tail.includes("000c0002") || // Luigi
       name.tail.includes("00010002") || // Peach
       name.tail.includes("00020002") || // Yoshi
+      name.tail.includes("000c0002") || // Luigi
       name.tail.includes("02620102") || // Rosalina
       name.tail.includes("00140002") || // Bowser
       name.tail.includes("001a0002") || // Wario
@@ -60,6 +55,10 @@ function Home() {
       name.tail.includes("00040002") || // Link
       name.tail.includes("000e0002") // Zelda
   );
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   function searchResult() {
     if (ambi.length === 0) {
@@ -75,9 +74,12 @@ function Home() {
     return ambi.map(amibo => {
       const { character, image, tail } = amibo;
 
-      return <AmiiboCharacter key={tail} name={character} image={image} />;
+      return (
+        <AmiiboCharacter key={tail} id={tail} name={character} image={image} />
+      );
     });
   }
+
   return (
     <>
       <Title title="Character" role="heading" />

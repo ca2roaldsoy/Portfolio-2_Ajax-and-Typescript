@@ -13,7 +13,7 @@ function AmiiboCharacter({ name, image }) {
         <Card.Img variant="top" src={image} alt={name} />
         <Card.Body>
           <Card.Title className="text-center">{name}</Card.Title>
-          <Link to={name} role="link">
+          <Link to={"character/" + name}>
             <Button variant="primary" block role="button">
               More Info
             </Button>
