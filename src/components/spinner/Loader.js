@@ -1,7 +1,7 @@
 import React from "react";
 import Spinner from "react-bootstrap/Spinner";
 
-function spinner() {
+function Loader() {
   return (
     <>
       <Spinner
@@ -14,4 +14,4 @@ function spinner() {
     </>
   );
 }
-export default spinner;
+export default Loader;

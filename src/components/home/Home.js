@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { AmiiboUrl } from "../../constants/api";
 import CardDeck from "react-bootstrap/CardDeck";
-import Title from "../../constants/title";
+import Title from "../title/Title";
 import Search from "./Search";
 import AmiiboCharacter from "./AmiiboCharacter";
-import Spinner from "../../constants/spinner";
+import Loader from "../spinner/Loader";
 
 function Home() {
   const [amiibos, setAmiibos] = useState([]);
@@ -13,20 +13,20 @@ function Home() {
 
   useEffect(() => {
     fetch(AmiiboUrl)
-      .then(response => response.json())
-      .then(json => {
+      .then((response) => response.json())
+      .then((json) => {
         setAmiibos(json.amiibo);
         setFilterAmiibos(json.amiibo);
         setLoading(false);
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   }, []);
 
   // filter search input
-  const handleInput = e => {
+  const handleInput = (e) => {
     const inputValue = e.target.value.toLowerCase();
-    const filterArr = amiibos.filter(function(amiibo) {
+    const filterArr = amiibos.filter(function (amiibo) {
       if (amiibo.character.toLowerCase().indexOf(inputValue) !== -1) {
         return true;
       } else {
@@ -39,7 +39,7 @@ function Home() {
 
   //console.log(filterAmiibos);
   const ambi = filterAmiibos.filter(
-    name =>
+    (name) =>
       name.tail.includes("00000002") || // Mario
       name.tail.includes("00010002") || // Peach
       name.tail.includes("00020002") || // Yoshi
@@ -57,7 +57,7 @@ function Home() {
   );
 
   if (loading) {
-    return <Spinner />;
+    return <Loader />;
   }
 
   function searchResult() {
@@ -71,7 +71,7 @@ function Home() {
     }
 
     // Map over amiibos displayed
-    return ambi.map(amibo => {
+    return ambi.map((amibo) => {
       const { character, image, tail } = amibo;
 
       return (

@@ -8,13 +8,25 @@ import Button from "react-bootstrap/Button";
 // Home Page
 function AmiiboCharacter({ name, image }) {
   return (
-    <Col sm={12} md={4} lg={3} as="section">
-      <Card>
-        <Card.Img variant="top" src={image} alt={name} />
+    <Col sm={6} md={4} lg={3} as="section">
+      <Card bg="light" text="dark">
+        <Card.Img
+          variant="top"
+          src={image}
+          alt={name}
+          className="[ card__img ]"
+        />
         <Card.Body>
-          <Card.Title className="text-center">{name}</Card.Title>
+          <Card.Title className="text-center [ card__title ]">
+            {name}
+          </Card.Title>
           <Link to={"character/" + name}>
-            <Button variant="primary" block role="button">
+            <Button
+              variant="primary"
+              block
+              role="button"
+              className="[ card__btn ]"
+            >
               More Info
             </Button>
           </Link>
@@ -26,7 +38,7 @@ function AmiiboCharacter({ name, image }) {
 
 AmiiboCharacter.propTypes = {
   name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired
+  image: PropTypes.string.isRequired,
 };
 
 export default AmiiboCharacter;

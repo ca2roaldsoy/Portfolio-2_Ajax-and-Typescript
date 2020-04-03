@@ -1,0 +1,12 @@
+@import "variables";
+
+h1 {
+  text-align: center;
+  margin: 20px;
+  font-family: $heading-font;
+}
+
+main {
+  margin: 20px;
+  font-family: $body-font;
+}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AmiiboUrl } from "../../constants/api";
-import Spinner from "../../constants/spinner";
+import Loader from "../spinner/Loader";
 
 function CharacterDetail() {
   const [detail, setDetail] = useState({});
@@ -12,29 +12,37 @@ function CharacterDetail() {
   const url = AmiiboUrl + "?name=" + name;
 
   useEffect(
-    function() {
+    function () {
       fetch(url)
-        .then(response => response.json())
-        .then(json => {
+        .then((response) => response.json())
+        .then((json) => {
           setDetail(json);
           setLoading(false);
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     [url]
   );
 
   if (loading) {
-    return <Spinner />;
+    return <Loader />;
   }
 
-  console.log(detail.amiibo);
-  return (
-    <div>
-      <h1>{detail.amiibo[0].character}</h1>
-      <p>{detail.amiibo[0].gameSeries}</p>
-    </div>
-  );
+  //console.log(detail.amiibo);
+
+  return detail.amiibo.map((d, i) => {
+    const { character, gameSeries, image } = d;
+
+    console.log(image);
+
+    return (
+      <div key={i}>
+        <h1>{character}</h1>
+        <p>{gameSeries}</p>
+        <img src={image} alt={character} />
+      </div>
+    );
+  });
 }
 
 export default CharacterDetail;
