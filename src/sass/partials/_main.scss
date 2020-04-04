@@ -7,3 +7,21 @@
     margin: 20px auto;
   }
 }
+
+.carousel-item.active {
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.7);
+  max-width: 400px;
+  margin: 0px auto;
+  font-size: 18px;
+  bottom: -50px;
+}
+
+.carousel-indicators {
+  bottom: -100px;
+}

@@ -5,11 +5,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  NavLink
+  NavLink,
 } from "react-router-dom";
 import Home from "../home/Home";
 import Container from "react-bootstrap/Container";
-import CharacterDetails from "../amiiboDetails/CharacterDetails";
+import Character from "../amiiboDetails/Character";
 
 // Navigation Menu
 function NavMenu() {
@@ -37,7 +37,7 @@ function NavMenu() {
       <Container>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/character/:name" component={CharacterDetails} />
+          <Route path="/character/:character" component={Character} />
         </Switch>
       </Container>
     </Router>

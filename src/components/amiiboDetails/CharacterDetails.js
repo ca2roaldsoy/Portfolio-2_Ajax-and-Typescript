@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AmiiboUrl } from "../../constants/api";
 import Loader from "../spinner/Loader";
+import { Carousel, CarouselItem } from "react-bootstrap";
+import CarouselCaption from "react-bootstrap/CarouselCaption";
 
 function CharacterDetail() {
   const [detail, setDetail] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const { name } = useParams();
+  const { character } = useParams();
 
-  const url = AmiiboUrl + "?name=" + name;
+  const url = AmiiboUrl + "?character=" + character;
 
   useEffect(
     function () {
@@ -28,21 +30,19 @@ function CharacterDetail() {
     return <Loader />;
   }
 
-  //console.log(detail.amiibo);
-
-  return detail.amiibo.map((d, i) => {
-    const { character, gameSeries, image } = d;
-
-    console.log(image);
-
-    return (
-      <div key={i}>
-        <h1>{character}</h1>
-        <p>{gameSeries}</p>
-        <img src={image} alt={character} />
-      </div>
-    );
-  });
+  return (
+    <Carousel>
+      {detail.amiibo.map((d, i) => (
+        <CarouselItem key={i}>
+          <img src={d.image} alt={d.name} className="d-block w-30" />
+          <CarouselCaption>
+            <h3>{d.name}</h3>
+            <p>{d.amiiboSeries}</p>
+          </CarouselCaption>
+        </CarouselItem>
+      ))}
+    </Carousel>
+  );
 }
 
 export default CharacterDetail;

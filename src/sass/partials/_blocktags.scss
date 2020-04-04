@@ -1,5 +1,9 @@
 @import "variables";
 
+body {
+  background-color: green;
+}
+
 h1 {
   text-align: center;
   margin: 20px;
@@ -9,4 +13,9 @@ h1 {
 main {
   margin: 20px;
   font-family: $body-font;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
 }
