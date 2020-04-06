@@ -1,7 +1,11 @@
 @import "variables";
 
 body {
-  background-color: green;
+  background-image: url("../../images/background-1877291_1280.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 h1 {

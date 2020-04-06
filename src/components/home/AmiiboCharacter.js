@@ -9,7 +9,7 @@ import Button from "react-bootstrap/Button";
 function AmiiboCharacter({ name, image }) {
   return (
     <Col sm={6} md={4} lg={3} as="section">
-      <Card bg="light" text="dark">
+      <Card text="dark">
         <Card.Img
           variant="top"
           src={image}

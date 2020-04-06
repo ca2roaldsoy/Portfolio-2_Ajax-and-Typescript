@@ -15,6 +15,7 @@ function Home() {
     fetch(AmiiboUrl)
       .then((response) => response.json())
       .then((json) => {
+        console.log(json.amiibo);
         setAmiibos(json.amiibo);
         setFilterAmiibos(json.amiibo);
         setLoading(false);
