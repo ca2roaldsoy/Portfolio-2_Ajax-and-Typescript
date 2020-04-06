@@ -32,15 +32,15 @@ function CharacterDetail() {
 
   return (
     <>
-      <Title title="Amiibo Figures" role="heading" />
+      <Title title="Amiibo Figure" role="heading" />
       <Carousel infiniteLoop useKeyboardArrows autoPlay>
         {detail.amiibo.map((d, i) => (
           <div key={i}>
-            <img src={d.image} alt={d.name} />
-            <p className="legend">
-              {d.name} <br />
-              {d.amiiboSeries}
+            <p>
+              <b>{d.name}</b>
             </p>
+            <p>{d.amiiboSeries}</p>
+            <img src={d.image} alt={d.name} />
           </div>
         ))}
       </Carousel>
