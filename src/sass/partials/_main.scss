@@ -25,6 +25,36 @@
   bottom: -50px;
 }
 
-.carousel-indicators {
-  bottom: -100px;
+.carousel .slide {
+  background: none;
+}
+
+.carousel .slide img {
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  width: auto;
+  max-width: 250px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel .slide .legend {
+  opacity: 0.8;
+  bottom: -15px;
+}
+
+.carousel .control-dots {
+  position: inherit;
+}
+
+.carousel .control-prev.control-arrow:before {
+  border-right: 8px solid black;
+}
+
+.carousel .control-next.control-arrow:before {
+  border-left: 8px solid black;
 }

@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AmiiboUrl } from "../../constants/api";
 import Loader from "../spinner/Loader";
-import { Carousel, CarouselItem } from "react-bootstrap";
-import CarouselCaption from "react-bootstrap/CarouselCaption";
+//import { Carousel, CarouselItem } from "react-bootstrap";
+//import CarouselCaption from "react-bootstrap/CarouselCaption";
+import { Carousel } from "react-responsive-carousel";
 
 function CharacterDetail() {
   const [detail, setDetail] = useState({});
@@ -31,17 +32,19 @@ function CharacterDetail() {
   }
 
   return (
-    <Carousel>
-      {detail.amiibo.map((d, i) => (
-        <CarouselItem key={i}>
-          <img src={d.image} alt={d.name} className="d-block w-30" />
-          <CarouselCaption>
-            <h3>{d.name}</h3>
-            <p>{d.amiiboSeries}</p>
-          </CarouselCaption>
-        </CarouselItem>
-      ))}
-    </Carousel>
+    <div className="carousel-wrapper">
+      <Carousel infiniteLoop useKeyboardArrows autoPlay>
+        {detail.amiibo.map((d, i) => (
+          <div key={i}>
+            <img src={d.image} alt={d.name} />
+            <p className="legend">
+              {d.name} <br />
+              {d.amiiboSeries}
+            </p>
+          </div>
+        ))}
+      </Carousel>
+    </div>
   );
 }
 
