@@ -1,3 +1,20 @@
+.errorMsg {
+  margin: 0 auto;
+
+  &__title {
+    color: red;
+
+    &--text {
+      color: green;
+    }
+  }
+}
+
+.spinner {
+  display: block;
+  margin: 350px auto;
+}
+
 .card {
   margin: 20px;
   background-color: rgba(255, 255, 255, 0.3);
@@ -14,6 +31,9 @@
     height: 150px;
     margin: 20px auto;
   }
+  &__title {
+    list-style-type: none;
+  }
 }
 
 .carousel-item.active {
@@ -24,47 +44,21 @@
 
 .carousel-caption {
   background-color: rgba(0, 0, 0, 0.7);
-  max-width: 400px;
-  margin: 0px auto;
   font-size: 18px;
+  margin: 0px auto;
+  display: block;
+  bottom: -100px;
+  padding-bottom: 50px;
+}
+
+.carousel-indicators {
   bottom: -50px;
 }
 
-.carousel .slide {
-  background: none;
-}
-
-.carousel .slide img {
-  margin: 50px auto;
-  display: flex;
-  justify-content: center;
-  width: auto;
-  max-width: 250px;
-}
-
-.row {
-  display: flex;
-  flex-direction: column;
-}
-
-.carousel .slide .legend {
-  opacity: 0.8;
-  bottom: -15px;
-}
-
-.carousel .control-dots {
-  position: inherit;
-}
-
-.carousel .control-prev.control-arrow:before {
-  border-right: 8px solid black;
-}
-
-.carousel .control-next.control-arrow:before {
-  border-left: 8px solid black;
-}
-
-.spinner {
-  display: block;
-  margin: 350px auto;
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.8);
+  background-color: black;
+  padding: 15px;
+  background-size: 20px;
 }

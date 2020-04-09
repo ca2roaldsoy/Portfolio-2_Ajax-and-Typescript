@@ -21,16 +21,14 @@ function AmiiboCharacter({ name, image }) {
             <Card.Title className="text-center [ card__title ]">
               {name}
             </Card.Title>
-            <Link to={"character/" + name}>
-              <Button
-                variant="primary"
-                block
-                role="button"
-                className="[ card__btn ]"
-              >
-                More Info
-              </Button>
-            </Link>
+            <Button
+              variant="primary"
+              block
+              role="button"
+              className="[ card__btn ]"
+            >
+              More Info
+            </Button>
           </Card.Body>
         </Card>
       </Link>

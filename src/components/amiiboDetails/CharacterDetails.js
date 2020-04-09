@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AmiiboUrl } from "../../constants/api";
 import Loader from "../spinner/Loader";
-import { Carousel } from "react-responsive-carousel";
-import Title from "../title/Title";
+import { Carousel, CarouselItem } from "react-bootstrap";
+import CarouselCaption from "react-bootstrap/CarouselCaption";
 
 function CharacterDetail() {
   const [detail, setDetail] = useState({});
@@ -31,20 +31,17 @@ function CharacterDetail() {
   }
 
   return (
-    <>
-      <Title title="Amiibo Figure" role="heading" />
-      <Carousel infiniteLoop useKeyboardArrows autoPlay>
-        {detail.amiibo.map((d, i) => (
-          <div key={i}>
-            <p>
-              <b>{d.name}</b>
-            </p>
+    <Carousel>
+      {detail.amiibo.map((d, i) => (
+        <CarouselItem key={i}>
+          <img src={d.image} alt={d.name} />
+          <CarouselCaption>
+            <h4>{d.name}</h4>
             <p>{d.amiiboSeries}</p>
-            <img src={d.image} alt={d.name} />
-          </div>
-        ))}
-      </Carousel>
-    </>
+          </CarouselCaption>
+        </CarouselItem>
+      ))}
+    </Carousel>
   );
 }
 

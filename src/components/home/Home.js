@@ -38,7 +38,6 @@ function Home() {
     setFilterAmiibos(filterArr);
   };
 
-  //console.log(filterAmiibos);
   const ambi = filterAmiibos.filter(
     (name) =>
       name.tail.includes("00000002") || // Mario
@@ -64,9 +63,11 @@ function Home() {
   function searchResult() {
     if (ambi.length === 0) {
       return (
-        <section className="errorMsg">
-          <h4>Sorry. No result :( </h4>
-          <p className="tryAgain">Please try another search :)</p>
+        <section className="[ errorMsg ]">
+          <h4 className="[ errorMsg__title ]">Sorry. No result :( </h4>
+          <p className="[ errorMsg__title--text ]">
+            Please try another search :)
+          </p>
         </section>
       );
     }
