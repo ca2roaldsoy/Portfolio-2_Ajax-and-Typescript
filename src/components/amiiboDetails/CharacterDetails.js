@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AmiiboUrl } from "../../constants/api";
 import Loader from "../spinner/Loader";
-import { Carousel, CarouselItem } from "react-bootstrap";
-import CarouselCaption from "react-bootstrap/CarouselCaption";
+import { Tabs, Tab } from "react-bootstrap";
 
 function CharacterDetail() {
   const [detail, setDetail] = useState({});
@@ -31,17 +30,20 @@ function CharacterDetail() {
   }
 
   return (
-    <Carousel>
+    <Tabs defaultActiveKey={detail.amiibo.name} variant="pills">
       {detail.amiibo.map((d, i) => (
-        <CarouselItem key={i}>
-          <img src={d.image} alt={d.name} />
-          <CarouselCaption>
-            <h4>{d.name}</h4>
-            <p>{d.amiiboSeries}</p>
-          </CarouselCaption>
-        </CarouselItem>
+        <Tab
+          key={i}
+          eventKey={i}
+          title={d.name}
+          className="text-center mt-5 [ figure ]"
+        >
+          <h3 className="[ figure__name ]">{d.name}</h3>
+          <p className="[ figure__game ]">{d.amiiboSeries}</p>
+          <img src={d.image} alt={d.name} className="[ figure__img ]" />
+        </Tab>
       ))}
-    </Carousel>
+    </Tabs>
   );
 }
 

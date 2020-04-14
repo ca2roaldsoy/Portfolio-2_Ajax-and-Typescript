@@ -1,3 +1,5 @@
+@import "variables";
+
 .errorMsg {
   margin: 0 auto;
 
@@ -34,31 +36,24 @@
   &__title {
     list-style-type: none;
   }
+  &__btn {
+    background-color: #326c73;
+
+    &:hover {
+      background-color: #21484d;
+    }
+  }
 }
 
-.carousel-item.active {
-  margin: 50px auto;
-  display: flex;
+.nav {
   justify-content: center;
 }
 
-.carousel-caption {
-  background-color: rgba(0, 0, 0, 0.7);
-  font-size: 18px;
-  margin: 0px auto;
+.figure {
+  text-align: center;
+}
+
+.figure__img {
+  margin: 30px auto;
   display: block;
-  bottom: -100px;
-  padding-bottom: 50px;
-}
-
-.carousel-indicators {
-  bottom: -50px;
-}
-
-.carousel-control-next-icon,
-.carousel-control-prev-icon {
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.8);
-  background-color: black;
-  padding: 15px;
-  background-size: 20px;
 }

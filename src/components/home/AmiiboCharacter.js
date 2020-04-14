@@ -21,12 +21,7 @@ function AmiiboCharacter({ name, image }) {
             <Card.Title className="text-center [ card__title ]">
               {name}
             </Card.Title>
-            <Button
-              variant="primary"
-              block
-              role="button"
-              className="[ card__btn ]"
-            >
+            <Button block role="button" className="[ card__btn ]">
               More Info
             </Button>
           </Card.Body>
