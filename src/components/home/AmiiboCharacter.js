@@ -16,6 +16,7 @@ function AmiiboCharacter({ name, image }) {
             src={image}
             alt={name}
             className="[ card__img ]"
+            role="image"
           />
           <Card.Body>
             <Card.Title className="text-center [ card__title ]">

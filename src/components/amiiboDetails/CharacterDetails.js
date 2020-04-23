@@ -37,10 +37,16 @@ function CharacterDetail() {
           eventKey={i}
           title={d.name}
           className="text-center mt-5 [ figure ]"
+          as="section"
         >
           <h3 className="[ figure__name ]">{d.name}</h3>
           <p className="[ figure__game ]">{d.amiiboSeries}</p>
-          <img src={d.image} alt={d.name} className="[ figure__img ]" />
+          <img
+            src={d.image}
+            alt={d.name}
+            className="[ figure__img ]"
+            role="image"
+          />
         </Tab>
       ))}
     </Tabs>
