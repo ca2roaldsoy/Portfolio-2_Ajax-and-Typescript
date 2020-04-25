@@ -41,12 +41,7 @@ function CharacterDetail() {
         >
           <h3 className="[ figure__name ]">{d.name}</h3>
           <p className="[ figure__game ]">{d.amiiboSeries}</p>
-          <img
-            src={d.image}
-            alt={d.name}
-            className="[ figure__img ]"
-            role="image"
-          />
+          <img src={d.image} alt={d.name} className="[ figure__img ]" />
         </Tab>
       ))}
     </Tabs>
