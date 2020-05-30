@@ -37,10 +37,10 @@
     list-style-type: none;
   }
   &__btn {
-    background-color: #326c73;
+    background-color: $colorLightBlue;
 
     &:hover {
-      background-color: #21484d;
+      background-color: $colorDarkBlue;
     }
   }
 }
