@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Row } from "react-bootstrap";
 import { AmiiboUrl } from "../../constants/api";
-import CardDeck from "react-bootstrap/CardDeck";
-import Title from "../title/Title";
-import Search from "./Search";
-import AmiiboCharacter from "./AmiiboCharacter";
 import Loader from "../spinner/Loader";
+import Title from "../title/Title";
+import AmiiboCharacter from "./AmiiboCharacter";
+import Search from "./Search";
 
 function Home() {
   const [amiibos, setAmiibos] = useState([]);
@@ -53,7 +53,7 @@ function Home() {
       name.tail.includes("02660102") || // Daisy
       name.tail.includes("02670102") || // Waluigi
       name.tail.includes("00040002") || // Link
-      name.tail.includes("000e0002") // Zelda
+      name.tail.includes("000e0002"), // Zelda
   );
 
   if (loading) {
@@ -86,9 +86,9 @@ function Home() {
     <>
       <Title title="Character" role="heading" />
       <Search handleInput={handleInput} role="search" />
-      <CardDeck as="main" role="main">
+      <Row as="main" role="main">
         {searchResult()}
-      </CardDeck>
+      </Row>
     </>
   );
 }
